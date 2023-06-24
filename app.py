@@ -9,17 +9,14 @@ path, n_classes = get_class_path()
 
 #Define the model architecture and the transformations to the dataset. You have to choose the same model in every step
 
-#model = Shufflenet(n_classes)
-#model = Resnet34(n_classes)
-#model = Resnet18(n_classes)
-transform, model = Resnet50(n_classes)
+#transform, _ = Shufflenet(n_classes)
+#transform, _ = Resnet34(n_classes)
+#transform, _ = Resnet18(n_classes)
+transform, _ = Resnet50(n_classes)
 
 
 # Importing the model
-model = Model(model)
-model_dict = torch.load('model.pt', map_location=get_default_device())
-state_dict = {k.replace('module.', ''): v for k, v in model_dict.items()}
-model.load_state_dict(state_dict)
+model = torch.jit.load('model.pt')
 model.eval()
 
 #prediction function

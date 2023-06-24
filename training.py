@@ -62,11 +62,9 @@ history += fit_one_cycle(epochs, max_lr, model, train_loader, val_loader,
 
 plot_accuracies(history)
 
-input()
-
 plot_losses(history)
 
-input()
 #Saving the model
 
-torch.save(model.state_dict(), 'model.pt')
+model_scripted = torch.jit.script(model) # Export to TorchScript
+model_scripted.save('model.pt') # Save
