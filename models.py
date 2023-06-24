@@ -29,7 +29,7 @@ def Shufflenet(n_classes):
         nn.Linear(128, n_classes)
     )
 
-    transform = tt.Compose([tt.ToTensor(), ShuffleNet_V2_X0_5_Weights.DEFAULT.transforms()])
+    transform = tt.Compose([tt.ToTensor(), ShuffleNet_V2_X0_5_Weights.DEFAULT.transforms(antialias = True)])
     
     return transform, model
 
@@ -48,7 +48,7 @@ def Resnet18(n_classes):
         nn.Linear(128, n_classes)
     )
 
-    transform = tt.Compose([tt.ToTensor(), ResNet18_Weights.DEFAULT.transforms()])
+    transform = tt.Compose([tt.ToTensor(), ResNet18_Weights.DEFAULT.transforms(antialias = True)])
     
     return transform, model
 
@@ -67,7 +67,7 @@ def Resnet34(n_classes):
         nn.Linear(128, n_classes)
     )
 
-    transform = tt.Compose([tt.ToTensor(), ResNet34_Weights.DEFAULT.transforms()])
+    transform = tt.Compose([tt.ToTensor(), ResNet34_Weights.DEFAULT.transforms(antialias = True)])
     
     return transform, model
 
@@ -90,7 +90,7 @@ def Resnet50(n_classes):
         nn.Linear(128, n_classes)
     )
 
-    transform = tt.Compose([tt.ToTensor(), ResNet50_Weights.DEFAULT.transforms()])
+    transform = tt.Compose([tt.ToTensor(), ResNet50_Weights.DEFAULT.transforms(antialias = True)])
     
     return transform, model
 
