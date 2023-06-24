@@ -1,4 +1,3 @@
-import torch
 import torch.nn as nn
 from utils import *
 #Defining models classes
@@ -28,7 +27,7 @@ def Shufflenet(n_classes):
         nn.Linear(128, n_classes)
     )
 
-    transform = ShuffleNet_V2_X0_5_Weights.IMAGENET1K_V1.transforms
+    transform = ShuffleNet_V2_X0_5_Weights.DEFAULT.transforms()
     
     return transform, model
 
@@ -47,7 +46,7 @@ def Resnet18(n_classes):
         nn.Linear(128, n_classes)
     )
 
-    transform = ResNet18_Weights.IMAGENET1K_V1.transforms
+    transform = ResNet18_Weights.DEFAULT.transforms()
     
     return transform, model
 
@@ -66,7 +65,7 @@ def Resnet34(n_classes):
         nn.Linear(128, n_classes)
     )
 
-    transform = ResNet34_Weights.IMAGENET1K_V1.transforms
+    transform = ResNet34_Weights.DEFAULT.transforms()
     
     return transform, model
 
@@ -89,7 +88,7 @@ def Resnet50(n_classes):
         nn.Linear(128, n_classes)
     )
 
-    transform = ResNet50_Weights.IMAGENET1K_V2.transforms
+    transform = ResNet50_Weights.DEFAULT.transforms()
     
     return transform, model
 

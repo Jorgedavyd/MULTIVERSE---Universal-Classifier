@@ -51,13 +51,15 @@ def plot_losses(history):
     ax.plot(losses_train, marker = 'o', color = 'g', label = 'Training' )
     ax.set(ylabel = 'Loss', xlabel = 'Epoch', title = 'Loss vs. No. of epochs')
     plt.legend()
+    plt.show()
 
 def plot_accuracies(history):
     accuracies = [x['val_acc'] for x in history]
     plt.plot(accuracies, '-x')
     plt.xlabel('epoch')
     plt.ylabel('accuracy')
-    plt.title('Accuracy vs. No. of epochs');
+    plt.title('Accuracy vs. No. of epochs')
+    plt.show()
 
 def accuracy(outputs, labels): ## Calcular la precisión
     _, preds = torch.max(outputs, dim=1)

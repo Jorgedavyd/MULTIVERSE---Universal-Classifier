@@ -1,10 +1,11 @@
 import torch
+import torch.nn
 from torch.utils.data.dataloader import DataLoader
 from torch.utils.data import random_split
 from torchvision.datasets import ImageFolder
-from torch.utils.data import random_split
 from utils import *
 from models import *
+
 
 #Define path and number of classes
 
@@ -37,7 +38,7 @@ val_loader = DataLoader(val_ds, batch_size*2, num_workers=4, pin_memory=True)
 device = get_default_device()
 train_loader = DeviceDataLoader(train_loader, device)
 val_loader = DeviceDataLoader(val_loader, device)
-model = to_device(Model(model = model), device)
+model = to_device(Model(model), device)
 
 #Hyperparameter tuning
 epochs = 15
@@ -48,13 +49,24 @@ opt_func = torch.optim.Adam
 
 #Training
 
+history = []
+
 torch.cuda.empty_cache()
 
-fit_one_cycle(epochs, max_lr, model, train_loader, val_loader,
+history += fit_one_cycle(epochs, max_lr, model, train_loader, val_loader,
                              grad_clip=grad_clip,
                              weight_decay=weight_decay,
                              opt_func=opt_func)
 
+#Showing results
+
+plot_accuracies(history)
+
+input()
+
+plot_losses(history)
+
+input()
 #Saving the model
 
 torch.save(model.state_dict(), 'model.pt')
