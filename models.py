@@ -1,9 +1,10 @@
 import torch
 import torch.nn as nn
+from utils import *
 #Defining models classes
-class Model(nn.Module):
+class Model(ImageClassificationBase):
     def __init__(self, model):
-        super().__init__(self)
+        super().__init__()
         self.model = model
     def forward(self, xb):
         return self.model(xb)

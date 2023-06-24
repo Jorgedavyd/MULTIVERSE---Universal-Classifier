@@ -6,15 +6,10 @@ from torchvision.datasets import ImageFolder
 import os
 
 def get_class_path():
-
     path = os.path.join(os.getcwd(), 'data')
-
     dataset = ImageFolder(root = path)
-
     n_classes = len(dataset.classes)
-
     del dataset
-
     return path, n_classes
 
 
