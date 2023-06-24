@@ -6,7 +6,7 @@ from torchvision.datasets import ImageFolder
 import os
 
 def get_class_path():
-    
+
     path = os.path.join(os.getcwd(), 'data')
 
     dataset = ImageFolder(root = path)
@@ -150,4 +150,4 @@ def fit_one_cycle(epochs, max_lr, model, train_loader, val_loader,
         result['lrs'] = lrs #Guarda la lista de learning rates de cada batch
         model.epoch_end(epoch, result) #imprimir en pantalla el seguimiento
         history.append(result) # añadir a la lista el diccionario de resultados
-        return history
+    return history
