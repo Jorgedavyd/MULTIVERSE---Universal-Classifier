@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 #Defining models classes
-class Model():
+class Model(nn.Module):
     def __init__(self, model):
         super().__init__(self)
         self.model = model
