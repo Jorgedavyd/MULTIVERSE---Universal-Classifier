@@ -1,9 +1,9 @@
 import torch
 import torch.nn as nn
 #Defining models classes
-class Model(nn.Module):
+class Model():
     def __init__(self, model):
-        super().__init__()
+        super().__init__(self)
         self.model = model
     def forward(self, xb):
         return self.model(xb)
