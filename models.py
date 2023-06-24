@@ -1,5 +1,7 @@
 import torch.nn as nn
 from utils import *
+import torchvision.transforms as tt
+
 #Defining models classes
 class Model(ImageClassificationBase):
     def __init__(self, model):
@@ -27,7 +29,7 @@ def Shufflenet(n_classes):
         nn.Linear(128, n_classes)
     )
 
-    transform = ShuffleNet_V2_X0_5_Weights.DEFAULT.transforms()
+    transform = tt.Compose([tt.ToTensor(), ShuffleNet_V2_X0_5_Weights.DEFAULT.transforms()])
     
     return transform, model
 
@@ -46,7 +48,7 @@ def Resnet18(n_classes):
         nn.Linear(128, n_classes)
     )
 
-    transform = ResNet18_Weights.DEFAULT.transforms()
+    transform = tt.Compose([tt.ToTensor(), ResNet18_Weights.DEFAULT.transforms()])
     
     return transform, model
 
@@ -65,7 +67,7 @@ def Resnet34(n_classes):
         nn.Linear(128, n_classes)
     )
 
-    transform = ResNet34_Weights.DEFAULT.transforms()
+    transform = tt.Compose([tt.ToTensor(), ResNet34_Weights.DEFAULT.transforms()])
     
     return transform, model
 
@@ -88,7 +90,7 @@ def Resnet50(n_classes):
         nn.Linear(128, n_classes)
     )
 
-    transform = ResNet50_Weights.DEFAULT.transforms()
+    transform = tt.Compose([tt.ToTensor(), ResNet50_Weights.DEFAULT.transforms()])
     
     return transform, model
 

@@ -17,7 +17,7 @@ transform, model = Resnet50(n_classes)
 
 # Importing the model
 model = Model(model)
-model.load_state_dict(torch.load('model.pt', map_location=torch.device('cpu')))
+model.load_state_dict(torch.load('model.pt', map_location=get_default_device()))
 model.eval()
 
 #prediction function

@@ -13,9 +13,9 @@ path, n_classes = get_class_path()
 
 #Define the model architecture and the transformations to the dataset. You have to choose the same model in every step
 
-#model = Shufflenet(n_classes)
-#model = Resnet34(n_classes)
-#model = Resnet18(n_classes)
+#transform, model = Shufflenet(n_classes)
+#transform, model = Resnet34(n_classes)
+#transform, model = Resnet18(n_classes)
 transform, model = Resnet50(n_classes)
 
 
