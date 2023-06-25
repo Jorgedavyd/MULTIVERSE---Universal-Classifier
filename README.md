@@ -1,3 +1,5 @@
+# MULTIVERSE (Multi-classifier for Versatile Recognition and Sorting)
+
 Classifier
 
 db_getter.py: Import images from the camera to train the model.
